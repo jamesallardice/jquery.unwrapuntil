@@ -24,35 +24,35 @@
  * THE SOFTWARE.
  */
 (function($) {
-    $.fn.unwrapUntil = function() {
-        var arg = arguments[0],
-            type = (typeof arguments[0]).toLowerCase();
-        if(type === "number") {
+	$.fn.unwrapUntil = function() {
+		var arg = arguments[0],
+			type = (typeof arguments[0]).toLowerCase();
+		if(type === "number") {
 			//Argument is a number, remove that number of ancestor elements
-            $.each(this, function() {
+			$.each(this, function() {
 				var $this = $(this);
-                for(var i = 0; i < arg; i++) {
-                    $this.unwrap();
-                }
-            });
-        }
-        else if(type === "string") {
+				for(var i = 0; i < arg; i++) {
+					$this.unwrap();
+				}
+			});
+		}
+		else if(type === "string") {
 			//Argument is a selector string, remove ancestor elements until the parent matches the selector
-            $.each(this, function() {
-                var $this = $(this);
-                while($this.parent(arg).length === 0) {
-                    $this.unwrap();
-                }
-            });
-        }
-        else if(type === "object") {
+			$.each(this, function() {
+				var $this = $(this);
+				while($this.parent(arg).length === 0) {
+					$this.unwrap();
+				}
+			});
+		}
+		else if(type === "object") {
 			//Argument is an object, remove ancestor elements until the parent is equal to that object
-            $.each(this, function() {
-			    var $this = $(this);
-                while($this.parent()[0] !== arg[0]) {
-                    $this.unwrap();
-                }
-            });
-        }
-    };
+			$.each(this, function() {
+				var $this = $(this);
+				while($this.parent()[0] !== arg[0]) {
+					$this.unwrap();
+				}
+			});
+		}
+	};
 })(jQuery);
