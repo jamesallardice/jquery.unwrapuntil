@@ -1,0 +1,1 @@
+unwrapUntil is a jQuery plugin that makes it easy to unwrap elements multiple times by passing a number (of ancestors to remove) or a selector (to stop removing ancestors when reached).
