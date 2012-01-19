@@ -40,8 +40,10 @@
 			//Argument is a selector string, remove ancestor elements until the parent matches the selector
 			$.each(this, function() {
 				var $this = $(this);
-				while($this.parent(arg).length === 0) {
-					$this.unwrap();
+				if($this.closest(arg).length > 0) {
+					while($this.parent(arg).length === 0) {
+						$this.unwrap();
+					}
 				}
 			});
 		}
@@ -49,8 +51,10 @@
 			//Argument is an object, remove ancestor elements until the parent is equal to that object
 			$.each(this, function() {
 				var $this = $(this);
-				while($this.parent()[0] !== arg[0]) {
-					$this.unwrap();
+				if($this.closest(arg).length > 0) {
+					while($this.parent()[0] !== arg[0]) {
+						$this.unwrap();
+					}
 				}
 			});
 		}
