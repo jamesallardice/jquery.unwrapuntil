@@ -26,7 +26,7 @@
 (function($) {
 	$.fn.unwrapUntil = function() {
 		var arg = arguments[0],
-			type = (typeof arguments[0]).toLowerCase();
+			type = typeof arguments[0];
 		if(type === "number") {
 			//Argument is a number, remove that number of ancestor elements
 			$.each(this, function() {
